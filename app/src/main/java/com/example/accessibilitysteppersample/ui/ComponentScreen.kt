@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import com.example.accessibilitysteppersample.MenuItem
 import com.example.accessibilitysteppersample.R
 import com.example.accessibilitysteppersample.ui.components.BasicStepper
+import com.example.accessibilitysteppersample.ui.components.CustomActionsStepper
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -62,6 +63,11 @@ fun ComponentScreen(
             when (menuItem) {
                 MenuItem.BasicStepper ->
                     BasicStepper(
+                        currentValue = travellersCount,
+                        onValueChange = { newValue -> travellersCount = newValue },
+                    )
+                MenuItem.CustomActionsStepper ->
+                    CustomActionsStepper(
                         currentValue = travellersCount,
                         onValueChange = { newValue -> travellersCount = newValue },
                     )
