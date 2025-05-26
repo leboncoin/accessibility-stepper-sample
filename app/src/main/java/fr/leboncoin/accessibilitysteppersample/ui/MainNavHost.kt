@@ -1,10 +1,10 @@
-package com.example.accessibilitysteppersample.ui
+package fr.leboncoin.accessibilitysteppersample.ui
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.accessibilitysteppersample.MenuItem
+import fr.leboncoin.accessibilitysteppersample.MenuItem
 
 private const val MENU_DESTINATION = "Menu"
 

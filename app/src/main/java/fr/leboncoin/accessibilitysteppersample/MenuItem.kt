@@ -1,4 +1,4 @@
-package com.example.accessibilitysteppersample
+package fr.leboncoin.accessibilitysteppersample
 
 import androidx.annotation.StringRes
 

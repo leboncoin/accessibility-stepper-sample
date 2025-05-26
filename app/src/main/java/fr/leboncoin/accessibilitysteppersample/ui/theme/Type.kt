@@ -1,4 +1,4 @@
-package com.example.accessibilitysteppersample.ui.theme
+package fr.leboncoin.accessibilitysteppersample.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

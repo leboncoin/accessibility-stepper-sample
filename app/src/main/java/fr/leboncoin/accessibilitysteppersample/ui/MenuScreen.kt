@@ -1,4 +1,4 @@
-package com.example.accessibilitysteppersample.ui
+package fr.leboncoin.accessibilitysteppersample.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,8 +17,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.accessibilitysteppersample.MenuItem
-import com.example.accessibilitysteppersample.R
+import fr.leboncoin.accessibilitysteppersample.MenuItem
+import fr.leboncoin.accessibilitysteppersample.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

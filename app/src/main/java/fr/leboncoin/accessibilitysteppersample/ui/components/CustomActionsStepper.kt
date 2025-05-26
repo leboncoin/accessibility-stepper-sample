@@ -1,4 +1,4 @@
-package com.example.accessibilitysteppersample.ui.components
+package fr.leboncoin.accessibilitysteppersample.ui.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -12,17 +12,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.CustomAccessibilityAction
 import androidx.compose.ui.semantics.LiveRegionMode
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.customActions
 import androidx.compose.ui.semantics.liveRegion
-import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.accessibilitysteppersample.R
+import fr.leboncoin.accessibilitysteppersample.R
 
 @Composable
-fun BasicStepper(
+fun CustomActionsStepper(
     modifier: Modifier = Modifier,
     currentValue: Int,
     onValueChange: (Int) -> Unit,
@@ -32,18 +33,33 @@ fun BasicStepper(
         count = currentValue,
         currentValue,
     )
+    val stepperCustomActions = listOf(
+        CustomAccessibilityAction(
+            label = stringResource(id = R.string.stepper_action_decrease_content_description),
+            action = {
+                onValueChange(currentValue - 1)
+                true
+            },
+        ),
+        CustomAccessibilityAction(
+            label = stringResource(id = R.string.stepper_action_increase_content_description),
+            action = {
+                onValueChange(currentValue + 1)
+                true
+            },
+        ),
+    )
     Row(
-        modifier = modifier,
+        modifier = modifier.clearAndSetSemantics {
+            contentDescription = stepperContentDescription
+            liveRegion = LiveRegionMode.Polite
+            customActions = stepperCustomActions
+        },
         horizontalArrangement = Arrangement.spacedBy(16.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(
-            modifier = Modifier
-                .weight(1f)
-                .semantics {
-                    contentDescription = stepperContentDescription
-                    liveRegion = LiveRegionMode.Polite
-                },
+            modifier = Modifier.weight(1f),
             text = stringResource(id = R.string.stepper_title),
         )
         Row(
@@ -53,17 +69,14 @@ fun BasicStepper(
             OutlinedIconButton(onClick = { onValueChange(currentValue - 1) }) {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_decrease),
-                    contentDescription = stringResource(id = R.string.stepper_action_decrease_content_description),
+                    contentDescription = null,
                 )
             }
-            Text(
-                modifier = Modifier.clearAndSetSemantics {  },
-                text = currentValue.toString(),
-            )
+            Text(text = currentValue.toString())
             OutlinedIconButton(onClick = { onValueChange(currentValue + 1) }) {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_increase),
-                    contentDescription = stringResource(id = R.string.stepper_action_increase_content_description),
+                    contentDescription = null,
                 )
             }
         }
@@ -72,8 +85,8 @@ fun BasicStepper(
 
 @Preview(showBackground = true)
 @Composable
-fun BasicStepperPreview() {
-    BasicStepper(
+fun CustomActionsStepperPreview() {
+    CustomActionsStepper(
         modifier = Modifier.fillMaxWidth(),
         currentValue = 1,
         onValueChange = { },

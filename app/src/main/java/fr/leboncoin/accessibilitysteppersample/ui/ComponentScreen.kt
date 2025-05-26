@@ -1,4 +1,4 @@
-package com.example.accessibilitysteppersample.ui
+package fr.leboncoin.accessibilitysteppersample.ui
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Column
@@ -22,11 +22,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.accessibilitysteppersample.MenuItem
-import com.example.accessibilitysteppersample.R
-import com.example.accessibilitysteppersample.ui.components.BasicStepper
-import com.example.accessibilitysteppersample.ui.components.CustomActionsStepper
-import com.example.accessibilitysteppersample.ui.components.ProgressStepper
+import fr.leboncoin.accessibilitysteppersample.MenuItem
+import fr.leboncoin.accessibilitysteppersample.R
+import fr.leboncoin.accessibilitysteppersample.ui.components.BasicStepper
+import fr.leboncoin.accessibilitysteppersample.ui.components.CustomActionsStepper
+import fr.leboncoin.accessibilitysteppersample.ui.components.ProgressStepper
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

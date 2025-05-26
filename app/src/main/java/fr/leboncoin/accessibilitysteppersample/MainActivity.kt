@@ -1,11 +1,11 @@
-package com.example.accessibilitysteppersample
+package fr.leboncoin.accessibilitysteppersample
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.example.accessibilitysteppersample.ui.MainNavHost
-import com.example.accessibilitysteppersample.ui.theme.AccessibilityStepperSampleTheme
+import fr.leboncoin.accessibilitysteppersample.ui.MainNavHost
+import fr.leboncoin.accessibilitysteppersample.ui.theme.AccessibilityStepperSampleTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

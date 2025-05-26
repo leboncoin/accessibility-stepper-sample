@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.accessibilitysteppersample"
+    namespace = "fr.leboncoin.accessibilitysteppersample"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.accessibilitysteppersample"
+        applicationId = "fr.leboncoin.accessibilitysteppersample"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
