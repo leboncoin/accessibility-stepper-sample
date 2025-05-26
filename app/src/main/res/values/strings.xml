@@ -3,6 +3,7 @@
     <string name="back_button_content_description">Back to previous screen</string>
     <string name="menu_item_title_basic_stepper">Basic Stepper</string>
     <string name="menu_item_title_custom_actions_stepper">Custom actions Stepper</string>
+    <string name="menu_item_title_progress_stepper">Progress Stepper</string>
     <string name="stepper_action_decrease_content_description">Remove one traveller</string>
     <string name="stepper_action_increase_content_description">Add one traveller</string>
     <string name="stepper_title">Number of travellers</string>

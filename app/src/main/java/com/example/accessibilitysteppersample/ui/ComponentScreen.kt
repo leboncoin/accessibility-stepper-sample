@@ -26,6 +26,7 @@ import com.example.accessibilitysteppersample.MenuItem
 import com.example.accessibilitysteppersample.R
 import com.example.accessibilitysteppersample.ui.components.BasicStepper
 import com.example.accessibilitysteppersample.ui.components.CustomActionsStepper
+import com.example.accessibilitysteppersample.ui.components.ProgressStepper
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -68,6 +69,11 @@ fun ComponentScreen(
                     )
                 MenuItem.CustomActionsStepper ->
                     CustomActionsStepper(
+                        currentValue = travellersCount,
+                        onValueChange = { newValue -> travellersCount = newValue },
+                    )
+                MenuItem.ProgressStepper ->
+                    ProgressStepper(
                         currentValue = travellersCount,
                         onValueChange = { newValue -> travellersCount = newValue },
                     )
