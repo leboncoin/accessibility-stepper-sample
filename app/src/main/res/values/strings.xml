@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">AccessibilityStepperSample</string>
+    <string name="stepper_action_decrease_content_description">Remove one traveller</string>
+    <string name="stepper_action_increase_content_description">Add one traveller</string>
+    <string name="stepper_title">Number of travellers</string>
+    <plurals name="stepper_value_content_description">
+        <item quantity="one">%1$d traveller</item>
+        <item quantity="other">%1$d travellers</item>
+    </plurals>
 </resources>
