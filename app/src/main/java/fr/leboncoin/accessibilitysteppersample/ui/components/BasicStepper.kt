@@ -46,26 +46,39 @@ fun BasicStepper(
                 },
             text = stringResource(id = R.string.stepper_title),
         )
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(16.dp),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            OutlinedIconButton(onClick = { onValueChange(currentValue - 1) }) {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_decrease),
-                    contentDescription = stringResource(id = R.string.stepper_action_decrease_content_description),
-                )
-            }
-            Text(
-                modifier = Modifier.clearAndSetSemantics {  },
-                text = currentValue.toString(),
+        Stepper(
+            currentValue = currentValue,
+            onValueChange = onValueChange,
+        )
+    }
+}
+
+@Composable
+private fun Stepper(
+    modifier: Modifier = Modifier,
+    currentValue: Int,
+    onValueChange: (Int) -> Unit,
+) {
+    Row(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(16.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        OutlinedIconButton(onClick = { onValueChange(currentValue - 1) }) {
+            Icon(
+                painter = painterResource(id = R.drawable.ic_decrease),
+                contentDescription = stringResource(id = R.string.stepper_action_decrease_content_description),
             )
-            OutlinedIconButton(onClick = { onValueChange(currentValue + 1) }) {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_increase),
-                    contentDescription = stringResource(id = R.string.stepper_action_increase_content_description),
-                )
-            }
+        }
+        Text(
+            modifier = Modifier.clearAndSetSemantics {  },
+            text = currentValue.toString(),
+        )
+        OutlinedIconButton(onClick = { onValueChange(currentValue + 1) }) {
+            Icon(
+                painter = painterResource(id = R.drawable.ic_increase),
+                contentDescription = stringResource(id = R.string.stepper_action_increase_content_description),
+            )
         }
     }
 }

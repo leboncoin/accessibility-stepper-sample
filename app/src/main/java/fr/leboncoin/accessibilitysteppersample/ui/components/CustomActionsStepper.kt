@@ -33,7 +33,63 @@ fun CustomActionsStepper(
         count = currentValue,
         currentValue,
     )
-    val stepperCustomActions = listOf(
+    val stepperCustomActions = defineStepperCustomActions(
+        currentValue = currentValue,
+        onValueChange = onValueChange,
+    )
+    Row(
+        modifier = modifier.clearAndSetSemantics {
+            contentDescription = stepperContentDescription
+            liveRegion = LiveRegionMode.Polite
+            customActions = stepperCustomActions
+        },
+        horizontalArrangement = Arrangement.spacedBy(16.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text(
+            modifier = Modifier.weight(1f),
+            text = stringResource(id = R.string.stepper_title),
+        )
+        Stepper(
+            currentValue = currentValue,
+            onValueChange = onValueChange,
+        )
+    }
+}
+
+@Composable
+private fun Stepper(
+    modifier: Modifier = Modifier,
+    currentValue: Int,
+    onValueChange: (Int) -> Unit,
+) {
+    Row(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(16.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        OutlinedIconButton(onClick = { onValueChange(currentValue - 1) }) {
+            Icon(
+                painter = painterResource(id = R.drawable.ic_decrease),
+                contentDescription = null,
+            )
+        }
+        Text(text = currentValue.toString())
+        OutlinedIconButton(onClick = { onValueChange(currentValue + 1) }) {
+            Icon(
+                painter = painterResource(id = R.drawable.ic_increase),
+                contentDescription = null,
+            )
+        }
+    }
+}
+
+@Composable
+private fun defineStepperCustomActions(
+    currentValue: Int,
+    onValueChange: (Int) -> Unit,
+): List<CustomAccessibilityAction> =
+    listOf(
         CustomAccessibilityAction(
             label = stringResource(id = R.string.stepper_action_decrease_content_description),
             action = {
@@ -49,39 +105,6 @@ fun CustomActionsStepper(
             },
         ),
     )
-    Row(
-        modifier = modifier.clearAndSetSemantics {
-            contentDescription = stepperContentDescription
-            liveRegion = LiveRegionMode.Polite
-            customActions = stepperCustomActions
-        },
-        horizontalArrangement = Arrangement.spacedBy(16.dp),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Text(
-            modifier = Modifier.weight(1f),
-            text = stringResource(id = R.string.stepper_title),
-        )
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(16.dp),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            OutlinedIconButton(onClick = { onValueChange(currentValue - 1) }) {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_decrease),
-                    contentDescription = null,
-                )
-            }
-            Text(text = currentValue.toString())
-            OutlinedIconButton(onClick = { onValueChange(currentValue + 1) }) {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_increase),
-                    contentDescription = null,
-                )
-            }
-        }
-    }
-}
 
 @Preview(showBackground = true)
 @Composable

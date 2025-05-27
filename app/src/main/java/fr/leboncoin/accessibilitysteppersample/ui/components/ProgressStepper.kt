@@ -56,24 +56,37 @@ fun ProgressStepper(
                 .clearAndSetSemantics {  },
             text = stringResource(id = R.string.stepper_title),
         )
-        Row(
+        Stepper(
             modifier = Modifier.clearAndSetSemantics {  },
-            horizontalArrangement = Arrangement.spacedBy(16.dp),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            OutlinedIconButton(onClick = { onValueChange(currentValue - 1) }) {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_decrease),
-                    contentDescription = null,
-                )
-            }
-            Text(text = currentValue.toString())
-            OutlinedIconButton(onClick = { onValueChange(currentValue + 1) }) {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_increase),
-                    contentDescription = null,
-                )
-            }
+            currentValue = currentValue,
+            onValueChange = onValueChange,
+        )
+    }
+}
+
+@Composable
+private fun Stepper(
+    modifier: Modifier = Modifier,
+    currentValue: Int,
+    onValueChange: (Int) -> Unit,
+) {
+    Row(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(16.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        OutlinedIconButton(onClick = { onValueChange(currentValue - 1) }) {
+            Icon(
+                painter = painterResource(id = R.drawable.ic_decrease),
+                contentDescription = null,
+            )
+        }
+        Text(text = currentValue.toString())
+        OutlinedIconButton(onClick = { onValueChange(currentValue + 1) }) {
+            Icon(
+                painter = painterResource(id = R.drawable.ic_increase),
+                contentDescription = null,
+            )
         }
     }
 }
