@@ -46,10 +46,7 @@ fun CustomActionsStepper(
         horizontalArrangement = Arrangement.spacedBy(16.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Text(
-            modifier = Modifier.weight(1f),
-            text = stringResource(id = R.string.stepper_title),
-        )
+        Text(text = stringResource(id = R.string.stepper_title))
         Stepper(
             currentValue = currentValue,
             onValueChange = onValueChange,

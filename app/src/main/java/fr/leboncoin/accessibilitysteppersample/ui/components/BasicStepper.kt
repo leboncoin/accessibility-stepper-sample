@@ -38,12 +38,10 @@ fun BasicStepper(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(
-            modifier = Modifier
-                .weight(1f)
-                .semantics {
-                    contentDescription = stepperContentDescription
-                    liveRegion = LiveRegionMode.Polite
-                },
+            modifier = Modifier.semantics {
+                contentDescription = stepperContentDescription
+                liveRegion = LiveRegionMode.Polite
+            },
             text = stringResource(id = R.string.stepper_title),
         )
         Stepper(

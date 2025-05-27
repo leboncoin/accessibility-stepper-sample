@@ -51,9 +51,7 @@ fun ProgressStepper(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(
-            modifier = Modifier
-                .weight(1f)
-                .clearAndSetSemantics {  },
+            modifier = Modifier.clearAndSetSemantics {  },
             text = stringResource(id = R.string.stepper_title),
         )
         Stepper(

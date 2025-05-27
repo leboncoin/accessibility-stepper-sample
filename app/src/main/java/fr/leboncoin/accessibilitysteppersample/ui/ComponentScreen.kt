@@ -17,6 +17,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -60,6 +61,7 @@ fun ComponentScreen(
                 .fillMaxSize()
                 .padding(innerPadding)
                 .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             when (menuItem) {
                 MenuItem.BasicStepper ->
